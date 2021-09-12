@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Binary {
-	static int arr[] = { 1, 2, 3, 4, 5 };
+	static int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
 	static Scanner scan = new Scanner(System.in);
 	static int x;
 
@@ -12,23 +12,15 @@ public class Binary {
 	}
 
 	public static void Search(int x, int l, int r) {
-		int m = (r - l) / 2;
+		int m = l + (r - l) / 2;
 		if (x == arr[m]) {
 			System.out.println("Found at position " + m);
 		} else if (x < arr[m]) {
 			r = m - 1;
-			for (int i = 0; i <= r; i++) {
-				if (x == arr[i]) {
-					System.out.println("Found at position " + i);
-				}
-			}
+			Search(x, l, r);
 		} else {
 			l = m + 1;
-			for (int i = l; i < r; i++) {
-				if (x == arr[i]) {
-					System.out.println("Found at position " + i);
-				}
-			}
+			Search(x, l, r);
 		}
 	}
 }
