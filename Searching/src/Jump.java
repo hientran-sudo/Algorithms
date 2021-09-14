@@ -31,10 +31,18 @@ public class Jump {
 					}
 				}
 			} else {
-				l = r;
-				r = 2 * r + 1;
+				l = r + 1;
+				r = r + 3;
+				if (r >= arr.length) {
+					for (int j = l; j < arr.length; j++) {
+						if (arr[j] == find) {
+							System.out.println("Find element at position " + j);
+							found = 1;
+							j = arr.length;
+						}
+					}
+				}
 			}
-
 		}
 	}
 }
